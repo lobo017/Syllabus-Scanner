@@ -4,6 +4,7 @@ from icalendar import Calendar, Event
 from datetime import datetime
 import re
 import pytz
+from SyllabusProcessor import SyllabusProcessor  # Changed import statement
 
 class SyllabusConverter:
     def __init__(self, root):
@@ -70,53 +71,36 @@ class SyllabusConverter:
             return None
     
     def convert_to_ical(self):
+        processor = SyllabusProcessor()  # Create instance of the class
+        
         if not self.course_title.get() or not self.syllabus_text.get("1.0", tk.END).strip():
             messagebox.showerror("Error", "Please fill in the course title and syllabus schedule.")
             return
         
-        # Create calendar
-        cal = Calendar()
-        cal.add('prodid', '-//Syllabus Converter//EN')
-        cal.add('version', '2.0')
+        course_info = {
+            'title': self.course_title.get(),
+            'instructor': self.instructor.get()
+        }
         
-        # Get timezone
-        tz = pytz.timezone(self.timezone.get())
-        
-        # Process each line
-        lines = self.syllabus_text.get("1.0", tk.END).strip().split('\n')
-        for line in lines:
-            if '-' in line:
-                date_str, description = line.split('-', 1)
-                date_obj = self.parse_date(date_str)
-                
-                if date_obj:
-                    event = Event()
-                    event.add('summary', f"{self.course_title.get()}: {description.strip()}")
-                    
-                    # Add timezone information
-                    date_obj = tz.localize(date_obj)
-                    event.add('dtstart', date_obj)
-                    event.add('dtend', date_obj.replace(hour=10))  # 1-hour duration by default
-                    
-                    if self.instructor.get():
-                        event.add('description', f"Instructor: {self.instructor.get()}")
-                    
-                    cal.add_component(event)
-        
-        # Save file
         try:
+            calendar = processor.process_syllabus(
+                self.syllabus_text.get("1.0", tk.END),
+                course_info=course_info,
+                timezone=self.timezone.get()
+            )
+            
             file_path = filedialog.asksaveasfilename(
                 defaultextension=".ics",
-                filetypes=[("iCalendar files", "*.ics")],
-                title="Save iCalendar File"
+                filetypes=[("iCalendar files", "*.ics")]
             )
             
             if file_path:
                 with open(file_path, 'wb') as f:
-                    f.write(cal.to_ical())
+                    f.write(calendar.to_ical())
                 messagebox.showinfo("Success", "Calendar file created successfully!")
+                
         except Exception as e:
-            messagebox.showerror("Error", f"Error saving file: {str(e)}")
+            messagebox.showerror("Error", f"Error processing syllabus: {str(e)}")
     
     def clear_fields(self):
         self.course_title.delete(0, tk.END)
