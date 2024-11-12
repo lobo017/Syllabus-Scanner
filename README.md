@@ -16,6 +16,18 @@
 1. Activate virtual environment
    1. venv/scripts/activate
 2. Start Coding!!
-
 3. If you install any new dependencies or libraries (ex: pip install ___), run the following command:
    1. pip freeze > .\requirements.txt
+
+
+### Using Git
+1. Make a new branch
+   1. git branch \<branch name>
+2. Switch to branch
+   1. git checkout \<branch name>
+3. Add all changed files to branch
+   1. git add .
+4. Commit changes to repository
+   1. git commit -m "*Insert Message Here*"
+5. Push Changes
+   1. git push
