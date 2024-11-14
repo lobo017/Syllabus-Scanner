@@ -30,4 +30,4 @@
 4. Commit changes to repository
    1. git commit -m "*Insert Message Here*"
 5. Push Changes
-   1. git push -u origin main
+   1. git push
