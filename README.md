@@ -22,7 +22,7 @@
 
 ### Using Git
 1. Pull changes from main
-   1. git pull
+   1. git pull origin main
 2. Make a new branch (or switch to previously created branch)
    1. git branch \<branch name> (git checkout \<branch name>)
 3. Add all changed files to branch
@@ -30,4 +30,4 @@
 4. Commit changes to repository
    1. git commit -m "*Insert Message Here*"
 5. Push Changes
-   1. git push
+   1. git push -u origin main
