@@ -22,7 +22,7 @@
 
 ### Using Git
 1. Pull changes from main
-   1. git pull
+   1. git pull origin main
 2. Make a new branch (or switch to previously created branch)
    1. git branch \<branch name> (git checkout \<branch name>)
 3. Add all changed files to branch
