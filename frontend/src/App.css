@@ -1,38 +1,92 @@
-.App {
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #164250;
+  padding: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar h1 {
+  color: #fff;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.hero {
+  background-color: #2f6690;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.hero h2 {
+  margin: 0;
+  font-size: 36px;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
+.upload-bar {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.upload-bar input[type="file"] {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.upcoming-assignments,
+.priority-section {
+  padding: 20px;
+  background-color: #fff;
+  margin: 20px;
+  border-radius: 8px;
+}
+
+.card-container,
+.priority-list {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.card, .priority-item {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  width: calc(33% - 20px);
+  box-sizing: border-box;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.card h3, .priority-item h3 {
+  font-size: 24px;
+}
+
+.card p, .priority-item p {
+  font-size: 16px;
+}
+
+.priority-item input[type="checkbox"] {
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .card, .priority-item {
+    width: calc(50% - 20px);
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 480px) {
+  .card, .priority-item {
+    width: 100%;
   }
 }
