@@ -29,7 +29,7 @@ const Notes = () => {
     <div className="notes-page">
       <h2>Notes</h2>
       <form onSubmit={handleSubmit} className="note-form">
-      <input
+        <input
           type="text"
           value={noteTag}
           onChange={(e) => setNoteTag(e.target.value)}
@@ -51,7 +51,7 @@ const Notes = () => {
             <h3 className={`tag-${tag}`}>{tag}</h3>
             <div className="notes-list">
               {groupedNotes[tag].map((note, index) => (
-                <div className="note-card" key={index}>
+                <div className={`note-card tag-${tag}`} key={index}>
                   <p>{note.text}</p>
                 </div>
               ))}

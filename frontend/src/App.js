@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Notes from "./Notes";
 import axios from "axios";
-
+import Chatbot from "./components/Chatbot"; 
 const App = () => {
   const [uploadedFile, setUploadedFile] = useState(null);
   const [uploadMessage, setUploadMessage] = useState("");
@@ -36,7 +36,7 @@ const App = () => {
       formData.append('file', file);
 
       try {
-        // Reset previous states
+        
         setUploadedFile(null);
         setUploadMessage("");
         setError("");
@@ -52,7 +52,7 @@ const App = () => {
         setUploadedFile(file);
         // setUploadMessage(response.data.message);
         
-        // Extract assignments from the parsed file
+        // get assignments from parsed file
         if (response.data.parsed_path) {
           extractAssignments(response.data.parsed_path);
         }
@@ -137,6 +137,9 @@ const App = () => {
           />
           <Route path="/notes" element={<Notes />} />
         </Routes>
+
+        {/* CHECK TO SEE IF CHATBOT STAYS THROUGHOUT THE SITE!!! */}
+        <Chatbot />
       </div>
     </Router>
   );

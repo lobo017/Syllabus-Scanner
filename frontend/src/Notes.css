@@ -1,81 +1,86 @@
 .notes-page {
-    padding: 2rem;
-    background-color: #d9dcd6;
-  }
-  
-  .note-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  .note-form textarea,
-  .note-form input {
-    padding: 1rem;
-    border: 1px solid #3a7ca5;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #16425b;
-  }
-  
-  .note-form button {
-    background-color: #2f6690;
-    color: white;
-    border: none;
-    padding: 0.7rem 1.2rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .note-form button:hover {
-    background-color: #16425b;
-  }
-  
-  .notes-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-  
-  .note-group {
-    padding: 1rem;
-    background-color: #81c3d7;
-    border-radius: 5px;
-  }
-  
-  .note-group .notes-list {
-    margin-top: 1rem;
-  }
-  
-  .note-card {
-    padding: 1rem;
-    background-color: white;
-    border: 1px solid #d9dcd6;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-  }
-  
-  .tag-math101 {
-    color: #3a7ca5;
-  }
-  
-  .tag-history202 {
-    color: #2f6690;
-  }
-  
-  .tag-physics301 {
-    color: #16425b;
-  }
+  padding: 2rem;
+  background-color: #d9dcd6; /* Light grayish background */
+}
 
-  .tag-epps4317{
-    color: #81c3d7;
-  }
+.note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
 
-  .tag-cgs3346{
-    color: #d9dcd6;
-  }
-  
+.note-form textarea,
+.note-form input {
+  padding: 1rem;
+  border: 1px solid #3a7ca5;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #16425b; /* Darker blue text */
+}
+
+.note-form button {
+  background-color: #2f6690;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.note-form button:hover {
+  background-color: #16425b;
+}
+
+.notes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.note-group {
+  padding: 1rem;
+  background-color: #81c3d7; /* Light blue for the note group background */
+  border-radius: 5px;
+}
+
+.note-group .notes-list {
+  margin-top: 1rem;
+}
+
+.note-card {
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid #d9dcd6; /* Light gray border */
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+/* Specific colors for each tag based on your palette */
+.tag-math101 {
+  background-color: #510001; /* Rosewood */
+  color: white;
+}
+
+.tag-history202 {
+  background-color: #800000; /* Maroon */
+  color: white;
+}
+
+.tag-physics301 {
+  background-color: #2f6690; /* Accent Blue */
+  color: white;
+}
+
+.tag-epps4317 {
+  background-color: #ceb992; /* Khaki */
+  color: #16425b; /* Dark Blue */
+}
+
+.tag-cgs3346 {
+  background-color: #c2c1c2; /* Silver */
+  color: #16425b; /* Dark Blue */
+}

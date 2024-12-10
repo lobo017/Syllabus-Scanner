@@ -1,0 +1,115 @@
+/* Chatbot container  */
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    border-radius: 10px;
+  }
+  
+  .chatbot-toggle {
+    background-color: #2f6690; 
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .chatbot-toggle:hover {
+    background-color: #3a7ca5; 
+  }
+  
+  .chatbot-window {
+    width: 350px;
+    height: 450px;
+    background-color: #d9dcd6; 
+    border: 1px solid #16425b;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+  }
+  
+  .chatbot-messages {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 15px;
+  }
+  
+  .message {
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  .user-message {
+    background-color: #16425b; 
+    color: white;
+    align-self: flex-end;
+  }
+  
+  .bot-message {
+    background-color: #81c3d7; 
+    color: #16425b;
+    align-self: flex-start;
+  }
+  
+  .chatbot-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-top: 1px solid #3a7ca5;
+  }
+  
+  .chatbot-input input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #3a7ca5;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+  }
+  
+  .chatbot-input button {
+    background-color: #3a7ca5;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .chatbot-input button:hover {
+    background-color: #2f6690;
+  }
+ 
+  @media (max-width: 768px) {
+    .chatbot-window {
+      width: 280px;
+      height: 400px;
+    }
+  
+    .chatbot-toggle {
+      padding: 10px 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .chatbot-window {
+      width: 240px;
+      height: 350px;
+    }
+  
+    .chatbot-toggle {
+      padding: 8px 12px;
+    }
+  }
+  
