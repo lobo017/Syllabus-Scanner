@@ -29,17 +29,17 @@ const Notes = () => {
     <div className="notes-page">
       <h2>Notes</h2>
       <form onSubmit={handleSubmit} className="note-form">
-        <textarea
-          value={noteText}
-          onChange={(e) => setNoteText(e.target.value)}
-          placeholder="Write your note here..."
-          required
-        />
         <input
           type="text"
           value={noteTag}
           onChange={(e) => setNoteTag(e.target.value)}
           placeholder="Tag this note"
+          required
+        />
+        <textarea
+          value={noteText}
+          onChange={(e) => setNoteText(e.target.value)}
+          placeholder="Write your note here..."
           required
         />
         <button type="submit">Add Note</button>
@@ -51,7 +51,7 @@ const Notes = () => {
             <h3 className={`tag-${tag}`}>{tag}</h3>
             <div className="notes-list">
               {groupedNotes[tag].map((note, index) => (
-                <div className="note-card" key={index}>
+                <div className={`note-card tag-${tag}`} key={index}>
                   <p>{note.text}</p>
                 </div>
               ))}

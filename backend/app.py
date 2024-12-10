@@ -3,7 +3,7 @@ from flask_cors import CORS
 import os
 import docxToTxt as dx
 import pdfToTxt as px
-
+from parse_syllabus import extract_assignments_and_dates  # Updated imports
 
 app = Flask(__name__)
 CORS(app)
@@ -14,7 +14,6 @@ os.makedirs(upload_folder, exist_ok=True)
 os.makedirs(parsed_folder, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = upload_folder
 app.config['PARSED_FOLDER'] = parsed_folder
-
 
 @app.route("/upload", methods=['POST'])
 def upload_file():
@@ -39,6 +38,10 @@ def upload_file():
             dx.parse_docx(upload_path, parsed_path)
         elif file_extension == 'pdf':
             px.parse_pdf(upload_path, parsed_path)
+        elif file_extension == 'txt':
+            # If it's already a txt file, just copy it
+            with open(upload_path, 'r') as src, open(parsed_path, 'w') as dst:
+                dst.write(src.read())
         else:
             return jsonify({"error": f"Unsupported file type: {file_extension}"}), 400
     except Exception as e:
@@ -46,8 +49,38 @@ def upload_file():
 
     return jsonify({"message": f"File parsed successfully: {parsed_filename}",
                     "parsed_path": parsed_path}), 200
-    
 
+# @app.route("/parse-assignments", methods=['GET'])
+# def parse_assignments():
+#     file_path = request.args.get('file')
+    
+#     if not file_path:
+#         return jsonify({"error": "No file path provided"}), 400
+    
+#     if not os.path.exists(file_path):
+#         return jsonify({"error": f"File not found: {file_path}"}), 404
+
+#     try:
+#         assignments = extract_assignments(file_path)
+#         return jsonify(assignments), 200
+#     except Exception as e:
+#         return jsonify({"error": str(e)}), 500
+
+@app.route("/generate-report", methods=['GET'])
+def generate_report_endpoint():
+    file_path = request.args.get('file')
+    
+    if not file_path:
+        return jsonify({"error": "No file path provided"}), 400
+
+    if not os.path.exists(file_path):
+        return jsonify({"error": f"File not found: {file_path}"}), 404
+
+    try:
+        report = extract_assignments_and_dates(file_path)
+        return jsonify(report), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
