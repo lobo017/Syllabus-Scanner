@@ -1,2 +1,6 @@
 .venv/
 venv/
+backend/modelcache/
+backend/__pycache__/
+frontend/node_modules/
+node_modules/
