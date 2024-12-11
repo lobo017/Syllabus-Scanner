@@ -1,6 +1,6 @@
 .notes-page {
   padding: 2rem;
-  background-color: #d9dcd6; /* Light grayish background */
+  background-color: #d9dcd6;
 }
 
 .note-form {
@@ -17,7 +17,7 @@
   border: 1px solid #3a7ca5;
   border-radius: 5px;
   font-size: 1rem;
-  color: #16425b; /* Darker blue text */
+  color: black;
 }
 
 .note-form button {
@@ -43,44 +43,20 @@
 
 .note-group {
   padding: 1rem;
-  background-color: #81c3d7; /* Light blue for the note group background */
   border-radius: 5px;
+  border: 1px solid #555;
+  color: white;
 }
 
-.note-group .notes-list {
+.notes-list {
   margin-top: 1rem;
 }
 
 .note-card {
   padding: 1rem;
   background-color: white;
-  border: 1px solid #d9dcd6; /* Light gray border */
+  border: 1px solid #555;
   border-radius: 5px;
   margin-bottom: 1rem;
-}
-
-/* Specific colors for each tag based on your palette */
-.tag-math101 {
-  background-color: #510001; /* Rosewood */
-  color: white;
-}
-
-.tag-history202 {
-  background-color: #800000; /* Maroon */
-  color: white;
-}
-
-.tag-physics301 {
-  background-color: #2f6690; /* Accent Blue */
-  color: white;
-}
-
-.tag-epps4317 {
-  background-color: #ceb992; /* Khaki */
-  color: #16425b; /* Dark Blue */
-}
-
-.tag-cgs3346 {
-  background-color: #c2c1c2; /* Silver */
-  color: #16425b; /* Dark Blue */
+  color: black;
 }
