@@ -33,8 +33,6 @@ pydeck==0.9.1
 Pygments==2.18.0
 pypdf==5.1.0
 PyPDF2==3.0.1
-PyPDF3==1.0.6
-PyPDF4==1.27.0
 python-dateutil==2.9.0.post0
 python-docx==1.1.2
 pytz==2024.2
